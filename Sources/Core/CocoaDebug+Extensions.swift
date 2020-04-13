@@ -279,7 +279,6 @@ extension UIWindow {
         if CocoaDebugSettings.shared.responseShake == false {return}
         if motion == .motionShake {
             if CocoaDebugSettings.shared.visible == true { return }
-            CocoaDebugSettings.shared.showBubbleAndWindow = !CocoaDebugSettings.shared.showBubbleAndWindow
         }
     }
     
@@ -294,7 +293,6 @@ extension UIWindow {
         if CocoaDebugSettings.shared.responseShake == false {return}
         if motion == .motionShake {
             if CocoaDebugSettings.shared.visible == true { return }
-            CocoaDebugSettings.shared.showBubbleAndWindow = !CocoaDebugSettings.shared.showBubbleAndWindow
         }
     }
 }
@@ -339,9 +337,6 @@ extension CocoaDebug {
         }
         if CocoaDebugSettings.shared.firstIn == nil {//first launch
             CocoaDebugSettings.shared.firstIn = ""
-            CocoaDebugSettings.shared.showBubbleAndWindow = true
-        }else{//not first launch
-            CocoaDebugSettings.shared.showBubbleAndWindow = CocoaDebugSettings.shared.showBubbleAndWindow
         }
         
         CocoaDebugSettings.shared.visible = false
@@ -387,8 +382,6 @@ extension CocoaDebug {
     ///deinit
     static func deinitializationMethod() {
         CocoaDebugSettings.shared.isRunning = false
-
-        _WindowHelper.shared.disable()
         _NetworkHelper.shared().disable()
         _LogHelper.shared.enable = false
         _OCLogHelper.shared()?.enable = false

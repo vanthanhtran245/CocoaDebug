@@ -38,16 +38,6 @@ import Foundation
     @objc public static func disable() {
         deinitializationMethod()
     }
-
-    //MARK: - hide Bubble
-    @objc public static func hideBubble() {
-        CocoaDebugSettings.shared.showBubbleAndWindow = false
-    }
-    
-    //MARK: - show Bubble
-    @objc public static func showBubble() {
-        CocoaDebugSettings.shared.showBubbleAndWindow = true
-    }
 }
 
 //MARK: - swiftLog() usage only for Swift
